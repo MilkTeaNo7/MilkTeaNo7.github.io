@@ -1,638 +1,473 @@
-<!DOCTYPE html>
-
-
-<html theme="dark" showBanner="true" hasBanner="false" > 
-<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/fontawesome.min.css" rel="stylesheet">
-<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/brands.min.css" rel="stylesheet">
-<link href="https://cdn.staticfile.org/font-awesome/6.4.2/css/solid.min.css" rel="stylesheet">
-<script src="/js/color.global.min.js" ></script>
-<script src="/js/load-settings.js" ></script>
+<!DOCTYPE HTML>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   
-  
-  
-
-  
   <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="John Doe">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  
+  <meta property="og:site_name" content="Hexo"/>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary">
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link rel="shortcut icon" href="/favicon.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
   
-    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
-    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
-    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
-    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
-    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
-    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
-    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
-    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
-  
-  
-  
 <link rel="stylesheet" href="/css/style.css">
+
+  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+  
 
 <meta name="generator" content="Hexo 7.1.1"></head>
 
+
 <body>
-  
-   
-  <div id="main-grid" class="  ">
-    <div id="nav" class=" is_home "  >
-      <navbar id="navbar">
-  <nav id="title-nav">
-    <a href="/">
-      <div id="vivia-logo">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-      </div>
-      <div>Hexo </div>
-    </a>
-  </nav>
-  <nav id="main-nav">
-    
-      <a class="main-nav-link" href="/">Home</a>
-    
-      <a class="main-nav-link" href="/archives">Archives</a>
-    
-      <a class="main-nav-link" href="/about">About</a>
-    
-  </nav>
-  <nav id="sub-nav">
-    <a id="theme-btn" class="nav-icon">
-      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
-      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
-    </a>
-    
-      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS Feed">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
-      </a>
-    
-    <div id="nav-menu-btn" class="nav-icon">
-      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
-    </div>
-  </nav>
-</navbar>
-<div id="nav-dropdown" class="hidden">
-  <div id="dropdown-link-list">
-    
-      <a class="nav-dropdown-link" href="/">Home</a>
-    
-      <a class="nav-dropdown-link" href="/archives">Archives</a>
-    
-      <a class="nav-dropdown-link" href="/about">About</a>
-    
-    
-      <a class="nav-dropdown-link" href="/atom.xml" title="RSS Feed">RSS</a>
-     
-    </div>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">Hexo</a></h1>
+  <h2><a href="/"></a></h2>
 </div>
-<script>
-  let dropdownBtn = document.getElementById("nav-menu-btn");
-  let dropdownEle = document.getElementById("nav-dropdown");
-  dropdownBtn.onclick = function() {
-    dropdownEle.classList.toggle("hidden");
-  }
-</script>
-    </div>
-    <div id="sidebar-wrapper">
-      <sidebar id="sidebar">
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/null">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-Hexo-更换主题" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
-    <div class="widget-wrap">
-  <div class="info-card">
-    <div class="avatar">
+  <div class="post-content">
+    <header>
       
-      <div class="img-dim"></div>
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2024-03-24T12:31:12.698Z"><a href="/2024/03/24/Hexo-%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98/">2024-03-24</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2024/03/24/Hexo-%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98/"></a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>#正在搞</p>
+<blockquote>
+<p>生产日期<br>2024-03-24 18:39<br>让我开心一下，谢谢了</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/fan-lv/Fan.git themes/Fan</span><br><span class="line">git clone https://github.com/saicaca/hexo-theme-vivia.git themes/vivia</span><br></pre></td></tr></table></figure>
+
+
+<p>Administrator@WILL-TOP MINGW64 ~&#x2F;Downloads&#x2F;hexo<br>$ git clone <a target="_blank" rel="noopener" href="https://github.com/fan-lv/Fan.git">https://github.com/fan-lv/Fan.git</a> themes&#x2F;Fan<br>Cloning into ‘themes&#x2F;Fan’…<br>fatal: unable to access ‘<a target="_blank" rel="noopener" href="https://github.com/fan-lv/Fan.git/">https://github.com/fan-lv/Fan.git/</a>‘: Failure when receiving data from the peer</p>
+<p>多来几次</p>
+<p>根据主页安装所需报</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-renderer-pug hexo-renderer-stylus</span><br></pre></td></tr></table></figure>
+
+<p>修改配置</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line">theme: lands <span class="comment"># 注释掉，修改成新的</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>hexo server –debug</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/themes/index.html">官方的模板</a>下载页面</li>
+</ul>
+
+      
     </div>
-    <div class="info">
-      <div class="username">Your Name </div>
-      <div class="dot"></div>
-      <div class="subtitle">This is the subtitle </div>
-      <div class="link-list">
+    <footer>
+      
         
-          <a class="link-btn" target="_blank" rel="noopener" href="https://twitter.com" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
         
-          <a class="link-btn" target="_blank" rel="noopener" href="https://store.steampowered.com" title="Steam"><i class="fa-brands fa-steam"></i></a>
-        
-          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com" title="GitHub"><i class="fa-brands fa-github"></i></a>
-         
-      </div>  
-    </div>
+      
+      <div class="clearfix"></div>
+    </footer>
   </div>
-</div>
+</article>
 
+
+
+
+  <article id="post-Hexo-准备环境" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
-  <div class="sticky">
-    
+  <div class="post-content">
+    <header>
       
-
-
-
-    
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2024-03-24T12:31:12.671Z"><a href="/2024/03/24/Hexo-%E5%87%86%E5%A4%87%E7%8E%AF%E5%A2%83/">2024-03-24</a></time>
       
+      
+  
+    <h1 class="title"><a href="/2024/03/24/Hexo-%E5%87%86%E5%A4%87%E7%8E%AF%E5%A2%83/"></a></h1>
+  
 
-    
-  </div>
-</sidebar>
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>#博客 #环境搭建</p>
+<hr>
+<blockquote>
+<p>其实很早就想搭建自己的博客了，那个时候用WP，DZ之类的，但无奈学习成本太高了，人生精力有限，因此选择了Hexo，其实也不是选择，只是想让自己的MD文件发挥更多的价值，正好看到GitHUB和Hexo的搭配，很符合我的胃口<br>\ -WILL 2023-03-31</p>
+</blockquote>
+<h1 id="Hexo是啥"><a href="#Hexo是啥" class="headerlink" title="Hexo是啥"></a>Hexo是啥</h1><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 <a target="_blank" rel="noopener" href="http://daringfireball.net/projects/markdown/">Markdown</a>（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。简单的说就是轻量化小型化，不用数据库，更多的内容可以看他<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">官网文档</a>。</p>
+<p>他的对我而言的<strong>优点</strong>如下</p>
+<ol>
+<li>小型化，速度够快</li>
+<li>配合GitHub Pages，我不用买服务器，买域名</li>
+<li>不用特地准备SSL，不用担心证书会过期</li>
+</ol>
+<h1 id="准备Git环境"><a href="#准备Git环境" class="headerlink" title="准备Git环境"></a>准备Git环境</h1><p>准备Git环境，如果忘了细节可以去看[[Git安装-Win]]</p>
+<ol>
+<li>去官网下载Git安装包，并通过默认参数安装完成</li>
+<li>生成SSH秘钥，并添加到GitHUB后台，便于后期认证</li>
+<li>添加全局用户名</li>
+<li>安装完成</li>
+</ol>
+<h1 id="准备Node-js环境"><a href="#准备Node-js环境" class="headerlink" title="准备Node.js环境"></a>准备Node.js环境</h1><p>准备Node.JS环境，如果脑子抽了那就用[[Node.js安装-Win10]]治疗<br>步骤很简单，简单到这一节可以忽略，但还是写一下把</p>
+<ol>
+<li>去官网下载最新<a target="_blank" rel="noopener" href="https://nodejs.org/dist/v18.15.0/node-v18.15.0-x64.msi">安装包</a></li>
+<li>双击安装，无需修改任何内容</li>
+<li>验证下安装是否OK<br> node -v</li>
+</ol>
+<h1 id="准备GitHUB仓库"><a href="#准备GitHUB仓库" class="headerlink" title="准备GitHUB仓库"></a>准备GitHUB仓库</h1><p>如何注册GitHUB账号，我想识字的都会，这里主要将如何建立仓库，以及域名需要注意的方面</p>
+<ol>
+<li>建立一个空库，属性要选择公开</li>
+<li>&#x3D;&#x3D;坑来了&#x3D;&#x3D;，创建仓库名的时候，格式必须为【<strong>你的GitHUB用户名</strong>+github.io】，千万不要想当然的起名字，否则稍后你访问的域名会变成<code>https://milkteano7.github.io/XXXX</code>，后面的XXXX将会是你想当然的起的名称</li>
+</ol>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://www.duheweb.com/post/20210417143744.html">GitHub Pages + Hexo + NexT + 自定义域名搭建永久有效的个人博客网站并进行SEO优化</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26625249">GitHub+Hexo 搭建个人网站详细教程</a></li>
+<li><a target="_blank" rel="noopener" href="http://jekyllthemes.org/">Hexo模版</a></li>
+<li>非常中文化的<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/one-command-deployment.html">官方</a>安装介绍内容</li>
+</ol>
+
+      
     </div>
-    <div id="content-body">
+    <footer>
       
-   
-
-
-<article id="post-Hexo-更换主题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
         
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/03/24/Hexo-%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98/">Untitled</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-03-24T12:31:12.698Z" itemprop="datePublished">2024-03-24</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-    Uncategorized 
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            608 words 
-          </div>
-        </div>
         
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              #正在搞
-
-生产日期2024-03-24 18:39让我开心一下，谢谢了
-
-12git clone https://github.com/fan-lv/Fan.git themes/Fangit clone https://github.com/saicaca/hexo-theme-vivia.git themes/vivia
-
-
-Administrator@WILL-TOP MINGW64 ~&#x2F;Downloads&#x2F;hexo$ git clone https://github.com/fan-lv/Fan.git themes&#x2F;FanCloning into ‘themes&#x2F;Fan’…fatal: unable to access ‘https://github.com/fan-lv/Fan.git/‘: Failure when receiving data from the peer
-多来几次
-根据主页安装所需报
-1npm install --save hexo-renderer-pug hexo-renderer-stylus
-
-修改...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
       
-      href="/2024/03/24/Hexo-%E6%9B%B4%E6%8D%A2%E4%B8%BB%E9%A2%98/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
+      <div class="clearfix"></div>
+    </footer>
   </div>
+</article>
+
+
+
+
+  <article id="post-Hexo-开始配置" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2024-03-24T12:31:12.653Z"><a href="/2024/03/24/Hexo-%E5%BC%80%E5%A7%8B%E9%85%8D%E7%BD%AE/">2024-03-24</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2024/03/24/Hexo-%E5%BC%80%E5%A7%8B%E9%85%8D%E7%BD%AE/"></a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>#博客 #搭建</p>
+<hr>
+<blockquote>
+<p>生产日期<br>\ -WILL 2023-03-31</p>
+</blockquote>
+<p>![[Hexo-准备环境#Hexo是啥]]</p>
+<h1 id="准备-！"><a href="#准备-！" class="headerlink" title="准备~！"></a>准备~！</h1><p>在开始之前你需确认已经安装了<code>node.js</code>环境，这就好比你要装QQ必须先装Windows一样，<br>可以简单的理解为Hexo是基于<code>node.js</code><br><code>node.js</code>是hexo的基础依赖环境</p>
+<h2 id="安装Hexo模块"><a href="#安装Hexo模块" class="headerlink" title="安装Hexo模块"></a>安装Hexo模块</h2><p><strong>目录准备</strong></p>
+<ol>
+<li>新建一个目录用于存放Hexo的文件</li>
+<li>然后再地址栏输入<code>CMD</code>，以便直接定位到该目录，当然你硬是敲命令我也没意见</li>
+</ol>
+<p>无论是cmd运行<code>Node.JS</code>，还是进入hexo文件夹内右键打开<code>Git Bash Here</code>，安装模块的命令相同</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<ol>
+<li>安装模块的命令为<code>npm install -g hexo-cli</code><ol>
+<li>这是原版命令，如果安装缓慢可以更换国内源</li>
+<li>国内源其实是安装了cnpm工具，之后通过cnpm进行安装</li>
+<li>如果安装了cnpm，之后的命令都会令开头都会多个n</li>
+<li>命令会变更成<code>cnpm install -g hexo-cli</code></li>
+<li>本例中并没有咏唱，直接完成了下载操作。。。你真信了</li>
+</ol>
+</li>
+<li>安装完成后，样张如下<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">*************************</span><br><span class="line">C:\Hexo&gt;npm install -g hexo-cli</span><br><span class="line"></span><br><span class="line">changed 59 packages <span class="keyword">in</span> 32s</span><br><span class="line"></span><br><span class="line">15 packages are looking <span class="keyword">for</span> funding</span><br><span class="line">  run `npm fund` <span class="keyword">for</span> details</span><br></pre></td></tr></table></figure></li>
+<li>然后可以通过<code>hexo -v</code>检查一下模块是否安装成功，如果成功会出现一堆模块的版本信息<br>&#x3D;&#x3D;更新也是用相同命令&#x3D;&#x3D;</li>
+</ol>
+<h2 id="初始化Hexo目录"><a href="#初始化Hexo目录" class="headerlink" title="初始化Hexo目录"></a>初始化Hexo目录</h2><ul>
+<li>在<code>node.js</code>下，安装了模块并不等于就有了hexo，就好比我下载好了QQ，只要我不双击装，那还是等于没有</li>
+<li>初始化这个过程可以在Git下面进行，也你能在CMD定位到目录进行，下面以CMD为例子<br><strong>一定要在空的文件夹下运行</strong><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">使用如下命令，如果不用目录名，就在当前目录生成</span><br><span class="line">hexo init</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出如下</span></span><br><span class="line">Administrator@DESKTOP-73HSVF0 MINGW64 /c/Hexo</span><br><span class="line">$ hexo init</span><br><span class="line">INFO  Cloning hexo-starter https://github.com/hexojs/hexo-starter.git</span><br><span class="line">INFO  Install dependencies</span><br><span class="line">INFO  Start blogging with Hexo!</span><br></pre></td></tr></table></figure>
+初始化成功后，hexo文件夹内会出现如下的文件<br>  <code>node_modules</code> 依赖包<br>  <code>public</code>存放生成的页面<br>  <code>scaffolds</code>生成文章的一些模板<br>  <code>source</code>用来存放你的文章<br>  <code>themes</code>放下下载的主题<br>  <code>_config.yml</code>博客的核心配置文件（设置主体、标题等属性）<br><strong>安装上传工具</strong><br>一定要在先安装这个这个git插件，否则会提示找不到工具<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></li>
+<li><code>npm install</code>：这是 Node.js 的包管理工具 npm 的一条命令，用于安装一个或多个包。</li>
+<li><code>hexo-deployer-git</code>：这是你要安装的包的名称。这个包是 Hexo 的一个部署器，用于将 Hexo 生成的网站文件部署到 Git 仓库。</li>
+<li><code>--save</code>：这个选项告诉 npm 将安装的包作为依赖项保存到你的 <code>package.json</code> 文件中。这意味着当你将项目分享给其他人或者在其他项目中重用这个配置时，他们也需要安装这个包。</li>
+</ul>
+<h1 id="添加SSH密钥"><a href="#添加SSH密钥" class="headerlink" title="添加SSH密钥"></a>添加SSH密钥</h1><p>其实这部分如果只有一个环境，只有一个仓库那么操作起来还是比较简单的，不用去靠谱其他的因素<br>但就是我的学习环境也是有很多其他的环境因素需要考虑<br>这里简单点现已一个仓库的情况来描述<br><strong>操作顺序</strong></p>
+<ol>
+<li>建立SSH密钥</li>
+<li>把公钥放到Github中去</li>
+<li>把密钥放到<code>C:\Users\Administrator\.ssh</code></li>
+<li>修改HEXO的配置文件，让他只用指定的密钥<br><strong>创建密钥</strong><br>指定文件名创建过程会把密钥元就地方便的拉在原地，如果不带文件名则会去.ssh文件夹<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t ED25519 -C &quot;ST-DELL-WILL-BJB&quot; -f hexo</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h1 id="创建SSH配置文件"><a href="#创建SSH配置文件" class="headerlink" title="创建SSH配置文件"></a>创建SSH配置文件</h1><p>需要手动创建<br>和unbunt等linux不同，Windows<code>.ssh</code>文件夹下默认是没有<code>config.conf</code>文件的<br>在ssh目录中新建一个<code>config</code>文件，不需要后缀名</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># HEXO配置</span></span><br><span class="line">Host hexo</span><br><span class="line">  HostName github.com</span><br><span class="line">  User git</span><br><span class="line">  IdentityFile ~/.ssh/hexo</span><br><span class="line">  IdentitiesOnly <span class="built_in">yes</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 其他配置</span></span><br><span class="line">Host github.com</span><br><span class="line">  HostName github.com</span><br><span class="line">  User git</span><br><span class="line">  IdentityFile ~/.ssh/obsidian</span><br><span class="line">  IdentitiesOnly <span class="built_in">yes</span>  </span><br></pre></td></tr></table></figure>
+<p><code>IdentitiesOnly</code> 是 SSH 配置文件中的一个选项，它用于指定 SSH 客户端是否只使用配置文件中指定的密钥来建立连接，而不去尝试其他可能的密钥。<br><strong>GIthub可以创建仓库密钥，而不是账户密钥</strong></p>
+<h1 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h1><p>注意如下最好的方法是在VS  Code中打开项目目录然后来进行操作，这是最简单的实践方式之一<br>你所需要做的是</p>
+<ol>
+<li>打开VS Code</li>
+<li>文件-打开文件夹</li>
+<li>终端-新建终端</li>
+<li>切换到Git终端<br><img src="https://raw.githubusercontent.com/MilkTeaNo7/picture/master/20240324153634.png" alt="image.png"></li>
+</ol>
+<h2 id="修改本地配置文件"><a href="#修改本地配置文件" class="headerlink" title="修改本地配置文件"></a>修改本地配置文件</h2><ol>
+<li>主要配置网站根目录下的<code>_config.yml</code> 配置文件，最好别用记事本，用VSCode或者其他文本编辑器都行</li>
+<li>需要修改的内容在最下方<br><strong>使用Git的方式</strong><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@github.com:MilkTeaNo7/MilkTeaNo7.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<strong>使用http的方式</strong><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@github.com:MilkTeaNo7/MilkTeaNo7.github.io.git</span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
+就和Git命令一样，其实有如上两种上传方式<ol>
+<li>用git方式，需要用到SSH秘钥，要提前上传，好处是不用每次都输入密码</li>
+<li>http方式，好处是不用SSH秘钥，问题是每次都要输入密码<br>我喜欢ssh方式，看起来高端啊~！</li>
+</ol>
+</li>
+</ol>
+<h2 id="多Git仓库的配置"><a href="#多Git仓库的配置" class="headerlink" title="多Git仓库的配置"></a>多Git仓库的配置</h2><p>这里是个坑</p>
+<ol>
+<li>当你有一个GitHUB账户，然后里面有多个仓库的时候</li>
+<li>或者有一个GitHUB账户，要参加别项目的时候</li>
+<li>一个GitHUB，一个墙国内版本的时候<br>你需要分别配置<code>config</code>的SSH配置文件，与HEXO的<code>_config.yml</code>文件<br>关键就是host的配置<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># config的配置文件</span></span><br><span class="line">Host hexo  <span class="comment"># 这里原来是Github.com</span></span><br><span class="line">  HostName github.com</span><br><span class="line">  User git</span><br><span class="line">  IdentityFile ~/.ssh/hexo</span><br><span class="line">  IdentitiesOnly <span class="built_in">yes</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># _config.yml的配置文件</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repo: git@hexo:MilkTeaNo7/MilkTeaNo7.github.io.git <span class="comment"># 注意看git@后面的</span></span><br><span class="line">  branch: main</span><br></pre></td></tr></table></figure>
+<strong>说明</strong></li>
+<li>默认的都是github.com，不区分大小写</li>
+<li>如果config的配置文件配置文件<code>HostName</code>更改了</li>
+<li>那么HEXO的<code>_config.yml</code>文件中git后面的内容也要修改</li>
+</ol>
+<h2 id="启动Hexo"><a href="#启动Hexo" class="headerlink" title="启动Hexo"></a>启动Hexo</h2><p><strong>启动测试</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<ol>
+<li>在CMD中运行<code>hexo server</code>，注意需要在安装了Hexo的文件夹进行，本例是在<code>C:\Hexo</code></li>
+<li>注意，需要在cmd或者git客户端下运行，不要再poawershell否则会报错</li>
+<li>根据提示访问网址，他会给出一个内网地址，一般是<code>http://localhost:4000</code></li>
+<li>如果端口4000和本地已有端口冲突，那么可以在启动的时候加上端口，比如<code>hexo server -p 5000</code></li>
+<li>查看网站的时候CMD窗口不能关闭，或者按<code>Ctrl+C</code>终止</li>
+</ol>
+<h1 id="最终部署"><a href="#最终部署" class="headerlink" title="最终部署"></a>最终部署</h1><p>感谢我自己写到了这里，2024年3月24日这是第二次折腾，发现有许多巨坑<br>别高兴，真正麻烦的现在才开始<br><strong>需要确认</strong></p>
+<ol>
+<li>密钥是否上传了，密钥检查是否通过</li>
+<li>密钥是否放到对的位置了</li>
+<li><code>_config.yml</code> 配置文件是否已经修改好了<br>否者会有很多问题等着你</li>
+</ol>
+<h2 id="将网站发布"><a href="#将网站发布" class="headerlink" title="将网站发布"></a>将网站发布</h2><p>也叫做部署，可以用这两个命令，区别在于一个是全称，一个是简写，本质没有区别</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br><span class="line">hexo d</span><br><span class="line"><span class="comment"># 如果成功，则是下方的提示</span></span><br><span class="line">INFO  Validating config</span><br><span class="line">INFO  Deploying: git</span><br><span class="line">INFO  Clearing .deploy_git folder...</span><br><span class="line">INFO  Copying files from public folder...</span><br><span class="line">INFO  Copying files from extend <span class="built_in">dirs</span>...</span><br><span class="line">On branch master</span><br><span class="line">nothing to commit, working tree clean</span><br><span class="line">Everything up-to-date</span><br><span class="line">branch <span class="string">&#x27;master&#x27;</span> <span class="built_in">set</span> up to track <span class="string">&#x27;git@hexo:MilkTeaNo7/MilkTeaNo7.github.io.git/main&#x27;</span>.</span><br><span class="line">INFO  Deploy <span class="keyword">done</span>: git</span><br></pre></td></tr></table></figure>
+<h2 id="访问你的博客"><a href="#访问你的博客" class="headerlink" title="访问你的博客"></a>访问你的博客</h2><p>当一切处理妥当后可以访问你的博客，网址就是你<code>GitHUB的用户名+github.io</code><br>比如 <a target="_blank" rel="noopener" href="https://milkteano7.github.io/">https://milkteano7.github.io</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-WordPress-主页显示异常" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2024-03-24T06:32:23.356Z"><a href="/2024/03/24/WordPress-%E4%B8%BB%E9%A1%B5%E6%98%BE%E7%A4%BA%E5%BC%82%E5%B8%B8/">2024-03-24</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2024/03/24/WordPress-%E4%B8%BB%E9%A1%B5%E6%98%BE%E7%A4%BA%E5%BC%82%E5%B8%B8/"></a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <hr>
+<blockquote>
+<p>生产日期<br>2023-07-07 13:17</p>
+</blockquote>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><hr>
+<ol>
+<li>一个网站从 一台服务器搬迁到另外 一台服务器</li>
+<li>因为是docker部署的，我连docker启动配置文件都是照抄的，数据库目录什么的都是一模一样的</li>
+<li>当我启动docker，访问原来的主页的时候，他却是只有文字，没有图片等内容，犹如网速很慢很多内容没有加载出来一样</li>
+<li>对于这个 问题，表面上就是CSS没有加载的感觉，当然我也不知道CSS是啥</li>
+</ol>
+<h1 id="问题点说明"><a href="#问题点说明" class="headerlink" title="问题点说明"></a>问题点说明</h1><hr>
+<p>该问题是WordPress数据库里面对于<strong>访问地址不正确</strong>所导致的，对此需要这么做</p>
+<ol>
+<li>登陆WordPress的容器</li>
+<li>从WordPress的容器中，跳转登陆到没有端口号的MySQL数据库</li>
+<li>用查询语句更新关键字段</li>
+</ol>
+<h1 id="处理步骤"><a href="#处理步骤" class="headerlink" title="处理步骤"></a>处理步骤</h1><hr>
+<p><strong>登陆MYSQL</strong><br>注意容器名字，特别是数据库名字是否正确<br>在登陆数据库的时候有账户名密码，这个是建立docker的时候配置文件中自定的，可以去[[WordPress-博客]]中查看</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it wordpress-db-1 bash</span><br><span class="line">mysql -u wd_db_user -p</span><br><span class="line">use  wordpress_db</span><br></pre></td></tr></table></figure>
+
+<p><strong>查询错误网址</strong><br>主要就是用来看下现在的登陆网址是否有问题</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM wp_options WHERE option_name = &#x27;home&#x27; OR option_name = &#x27;siteurl&#x27;;</span><br><span class="line">+-----------+-------------+-----------------------------+----------+</span><br><span class="line">| option_id | option_name | option_value                | autoload |</span><br><span class="line">+-----------+-------------+-----------------------------+----------+</span><br><span class="line">|         2 | home        | http://139.224.37.141:8500/ | yes      |</span><br><span class="line">|         1 | siteurl     | http://139.224.37.141:8500/ | yes      |</span><br><span class="line">+-----------+-------------+-----------------------------+----------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如上是查询命令，其实需要修改的就是这两个字段中的<code>option_value</code></li>
+</ul>
+<p><strong>修正问题</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 可以先把这两个字段设置成空</span><br><span class="line">UPDATE wp_options SET option_value = &#x27;&#x27; WHERE option_name = &#x27;home&#x27; OR option_name = &#x27;siteurl&#x27;;</span><br><span class="line"></span><br><span class="line"># 设置成想要的</span><br><span class="line">UPDATE wp_options SET option_value = &#x27;http://139.224.37.141:8500/&#x27; WHERE option_name = &#x27;home&#x27; OR option_name = &#x27;siteurl&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="处理图片问题"><a href="#处理图片问题" class="headerlink" title="处理图片问题"></a>处理图片问题</h1><hr>
+<p>在网站搬家之后如果已经通过如上方式解决了网页无法现实或者显示错乱的问题，那么之后你会遇到图片大部分出现问你，在转圈圈等情况，对于之前上传过的图片无法加载的问题，可以通过类似方法通过mysql更新数据库中对于图片的网址来解决</p>
+<p>对wordpress网站图片迁移后的访问问题,可以通过数据库来更新图片的URL地址</p>
+<ol>
+<li>登录wordpress数据库,找到wp_posts表,该表包含了所有文章和页面的内容</li>
+<li>运行如下SQL查询,筛选出图片类型的帖子:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM wp_posts WHERE post_type = &#x27;attachment&#x27;;</span><br></pre></td></tr></table></figure></li>
+<li>这样可以提取出所有附件,也就是图片posts。</li>
+<li>然后需要修改这些posts的 guid和post_content字段中的图片URL地址:<ul>
+<li>guid字段保存着图片原始URL</li>
+<li>post_content字段中可能还有图片URL作为HTML标签属性</li>
+</ul>
+</li>
+</ol>
+<p>可以使用REPLACE函数来批量替换URL:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">UPDATE wp_posts</span><br><span class="line">SET guid = REPLACE(guid, &#x27;old-domain&#x27;, &#x27;new-domain&#x27;),</span><br><span class="line">post_content = REPLACE(post_content, &#x27;old-domain&#x27;, &#x27;new-domain&#x27;)</span><br><span class="line">WHERE post_type = &#x27;attachment&#x27;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">UPDATE wp_posts</span><br><span class="line">SET guid = REPLACE(guid, &#x27;https://zhiqiansoft.com/&#x27;, &#x27;http://139.224.37.141:8500/&#x27;),</span><br><span class="line">post_content = REPLACE(post_content, &#x27;https://zhiqiansoft.com/&#x27;, &#x27;https://zhiqiansoft.com&#x27;)</span><br><span class="line">WHERE post_type = &#x27;attachment&#x27;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><hr>
+<ul>
+<li>如果要粗暴的备份方法，可以看[[WordPress-备份]]</li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-hello-world" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2024-03-24T06:26:46.827Z"><a href="/2024/03/24/hello-world/">2024-03-24</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2024/03/24/hello-world/">Hello World</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
 </article>
 
 
 
 
 
-
-
-   
-
-
-<article id="post-Hexo-准备环境" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
+<nav id="pagination">
   
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/03/24/Hexo-%E5%87%86%E5%A4%87%E7%8E%AF%E5%A2%83/">Untitled</a>
-      </h1>
-    
   
+  <div class="clearfix"></div>
+</nav></div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="as_sitesearch" value="example.com">
+  </form>
 </div>
 
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-03-24T12:31:12.671Z" itemprop="datePublished">2024-03-24</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
+
   
-    Uncategorized 
-   
-</div>
+
   
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            823 words 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              #博客 #环境搭建
-
-
-其实很早就想搭建自己的博客了，那个时候用WP，DZ之类的，但无奈学习成本太高了，人生精力有限，因此选择了Hexo，其实也不是选择，只是想让自己的MD文件发挥更多的价值，正好看到GitHUB和Hexo的搭配，很符合我的胃口\ -WILL 2023-03-31
-
-Hexo是啥Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。简单的说就是轻量化小型化，不用数据库，更多的内容可以看他官网文档。
-他的对我而言的优点如下
-
-小型化，速度够快
-配合GitHub Pages，我不用买服务器，买域名
-不用特地准备SSL，不用担心证书会过期
-
-准备Git环境准备Git环境，如果忘了细节可以去看[[Git安装-Win]]
-
-去官网下载Git安装包，并通过默认参数安装完成
-生成SSH秘钥，并添加到GitHUB后台，便于后期认证
-添加全局用户名
-安装完成
-
-准备Node.js环境准备Node.JS环境，如果脑子抽了那就用[[Node.js安装-Win10]]治疗步骤很简单，简单到这一节可...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2024/03/24/Hexo-%E5%87%86%E5%A4%87%E7%8E%AF%E5%A2%83/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
+</aside>
+    <div class="clearfix"></div>
   </div>
+  <footer id="footer" class="inner"><div class="alignleft">
   
-</article>
-
-
-
-
-
-
-
-   
-
-
-<article id="post-Hexo-开始配置" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/03/24/Hexo-%E5%BC%80%E5%A7%8B%E9%85%8D%E7%BD%AE/">Untitled</a>
-      </h1>
-    
+  &copy; 2024 John Doe
   
 </div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-03-24T12:31:12.653Z" itemprop="datePublished">2024-03-24</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
+<div class="clearfix"></div></footer>
   
-    Uncategorized 
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            3.8k words 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              #博客 #搭建
+<script src="/js/jquery-3.4.1.min.js"></script>
 
 
-生产日期\ -WILL 2023-03-31
-
-![[Hexo-准备环境#Hexo是啥]]
-准备~！在开始之前你需确认已经安装了node.js环境，这就好比你要装QQ必须先装Windows一样，可以简单的理解为Hexo是基于node.jsnode.js是hexo的基础依赖环境
-安装Hexo模块目录准备
-
-新建一个目录用于存放Hexo的文件
-然后再地址栏输入CMD，以便直接定位到该目录，当然你硬是敲命令我也没意见
-
-无论是cmd运行Node.JS，还是进入hexo文件夹内右键打开Git Bash Here，安装模块的命令相同
-1npm install -g hexo-cli
-
-安装模块的命令为npm install -g hexo-cli
-这是原版命令，如果安装缓慢可以更换国内源
-国内源其实是安装了cnpm工具，之后通过cnpm进行安装
-如果安装了cnpm，之后的命令都会令开头都会多个n
-命令会变更成cnpm install -g hexo-cli
-本例中并没有咏唱，直接完成了下载操作。。。你真信了
+<script src="/js/jquery.imagesloaded.min.js"></script>
 
 
-安装完成后，样张如下12345678npm install...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2024/03/24/Hexo-%E5%BC%80%E5%A7%8B%E9%85%8D%E7%BD%AE/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
+<script src="/js/gallery.js"></script>
 
 
 
 
 
 
-
-   
-
-
-<article id="post-WordPress-主页显示异常" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/03/24/WordPress-%E4%B8%BB%E9%A1%B5%E6%98%BE%E7%A4%BA%E5%BC%82%E5%B8%B8/">Untitled</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-03-24T06:32:23.356Z" itemprop="datePublished">2024-03-24</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-    Uncategorized 
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            2.1k words 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              
-
-生产日期2023-07-07 13:17
-
-问题
-
-一个网站从 一台服务器搬迁到另外 一台服务器
-因为是docker部署的，我连docker启动配置文件都是照抄的，数据库目录什么的都是一模一样的
-当我启动docker，访问原来的主页的时候，他却是只有文字，没有图片等内容，犹如网速很慢很多内容没有加载出来一样
-对于这个 问题，表面上就是CSS没有加载的感觉，当然我也不知道CSS是啥
-
-问题点说明
-该问题是WordPress数据库里面对于访问地址不正确所导致的，对此需要这么做
-
-登陆WordPress的容器
-从WordPress的容器中，跳转登陆到没有端口号的MySQL数据库
-用查询语句更新关键字段
-
-处理步骤
-登陆MYSQL注意容器名字，特别是数据库名字是否正确在登陆数据库的时候有账户名密码，这个是建立docker的时候配置文件中自定的，可以去[[WordPress-博客]]中查看
-123docker exec -it wordpress-db-1 bashmysql -u wd_db_user -puse  wordpress_db
-
-查询错误网址主要就是用来看下现在的登陆网...
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2024/03/24/WordPress-%E4%B8%BB%E9%A1%B5%E6%98%BE%E7%A4%BA%E5%BC%82%E5%B8%B8/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
 
-
-
-
-
-
-   
-
-
-<article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2024/03/24/hello-world/">Hello World</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2024-03-24T06:26:46.827Z" itemprop="datePublished">2024-03-24</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-    Uncategorized 
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            367 words 
-          </div>
-        </div>
-        
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            
-              Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;
-
-More info: Writing
-Run server1$ hexo server
-
-More info: Server
-Generate static files1$ hexo generate
-
-More info: Generating
-Deploy to remote sites1$ hexo deploy
-
-More info: Deployment
-
-            
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2024/03/24/hello-world/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-    </div>
-    <div id="footer-wrapper">
-      <footer id="footer">
-  
-  <div id="footer-info" class="inner">
-    
-    &copy; 2024 Your Name<br>
-    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
-  </div>
-</footer>
-
-    </div>
-    <div class="back-to-top-wrapper">
-    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
-        <i class="fa-solid fa-angle-up"></i>
-    </button>
-</div>
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 <script>
-    function topFunction() {
-        window.scroll({ top: 0, behavior: 'smooth' });
-    }
-    let btn = document.getElementById('back-to-top-btn');
-    function scrollFunction() {
-        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
-            btn.classList.remove('hide')
-        } else {
-            btn.classList.add('hide')
-        }
-    }
-    window.onscroll = function() {
-        scrollFunction();
-    }
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
 </script>
 
-  </div>
-  <script src="/js/light-dark-switch.js"></script>
 </body>
 </html>
