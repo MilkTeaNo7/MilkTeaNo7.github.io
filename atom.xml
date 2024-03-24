@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2024-03-20T03:44:37.938Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/2024/03/24/WordPress-%E4%B8%BB%E9%A1%B5%E6%98%BE%E7%A4%BA%E5%BC%82%E5%B8%B8/"/>
+    <id>http://example.com/2024/03/24/WordPress-%E4%B8%BB%E9%A1%B5%E6%98%BE%E7%A4%BA%E5%BC%82%E5%B8%B8/</id>
+    <published>2024-03-24T06:32:23.356Z</published>
+    <updated>2024-03-20T03:44:37.938Z</updated>
+    
+    <content type="html"><![CDATA[<hr><blockquote><p>生产日期<br>2023-07-07 13:17</p></blockquote><h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><hr><ol><li>一个网站从 一台服务器搬迁到另外 一台服务器</li><li>因为是docker部署的，我连docker启动配置文件都是照抄的，数据库目录什么的都是一模一样的</li><li>当我启动docker，访问原来的主页的时候，他却是只有文字，没有图片等内容，犹如网速很慢很多内容没有加载出来一样</li><li>对于这个 问题，表面上就是CSS没有加载的感觉，当然我也不知道CSS是啥</li></ol><h1 id="问题点说明"><a href="#问题点说明" class="headerlink" title="问题点说明"></a>问题点说明</h1><hr><p>该问题是WordPress数据库里面对于<strong>访问地址不正确</strong>所导致的，对此需要这么做</p><ol><li>登陆WordPress的容器</li><li>从WordPress的容器中，跳转登陆到没有端口号的MySQL数据库</li><li>用查询语句更新关键字段</li></ol><h1 id="处理步骤"><a href="#处理步骤" class="headerlink" title="处理步骤"></a>处理步骤</h1><hr><p><strong>登陆MYSQL</strong><br>注意容器名字，特别是数据库名字是否正确<br>在登陆数据库的时候有账户名密码，这个是建立docker的时候配置文件中自定的，可以去[[WordPress-博客]]中查看</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it wordpress-db-1 bash</span><br><span class="line">mysql -u wd_db_user -p</span><br><span class="line">use  wordpress_db</span><br></pre></td></tr></table></figure><p><strong>查询错误网址</strong><br>主要就是用来看下现在的登陆网址是否有问题</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM wp_options WHERE option_name = &#x27;home&#x27; OR option_name = &#x27;siteurl&#x27;;</span><br><span class="line">+-----------+-------------+-----------------------------+----------+</span><br><span class="line">| option_id | option_name | option_value                | autoload |</span><br><span class="line">+-----------+-------------+-----------------------------+----------+</span><br><span class="line">|         2 | home        | http://139.224.37.141:8500/ | yes      |</span><br><span class="line">|         1 | siteurl     | http://139.224.37.141:8500/ | yes      |</span><br><span class="line">+-----------+-------------+-----------------------------+----------+</span><br><span class="line">2 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure><ul><li>如上是查询命令，其实需要修改的就是这两个字段中的<code>option_value</code></li></ul><p><strong>修正问题</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 可以先把这两个字段设置成空</span><br><span class="line">UPDATE wp_options SET option_value = &#x27;&#x27; WHERE option_name = &#x27;home&#x27; OR option_name = &#x27;siteurl&#x27;;</span><br><span class="line"></span><br><span class="line"># 设置成想要的</span><br><span class="line">UPDATE wp_options SET option_value = &#x27;http://139.224.37.141:8500/&#x27; WHERE option_name = &#x27;home&#x27; OR option_name = &#x27;siteurl&#x27;;</span><br></pre></td></tr></table></figure><h1 id="处理图片问题"><a href="#处理图片问题" class="headerlink" title="处理图片问题"></a>处理图片问题</h1><hr><p>在网站搬家之后如果已经通过如上方式解决了网页无法现实或者显示错乱的问题，那么之后你会遇到图片大部分出现问你，在转圈圈等情况，对于之前上传过的图片无法加载的问题，可以通过类似方法通过mysql更新数据库中对于图片的网址来解决</p><p>对wordpress网站图片迁移后的访问问题,可以通过数据库来更新图片的URL地址</p><ol><li>登录wordpress数据库,找到wp_posts表,该表包含了所有文章和页面的内容</li><li>运行如下SQL查询,筛选出图片类型的帖子:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM wp_posts WHERE post_type = &#x27;attachment&#x27;;</span><br></pre></td></tr></table></figure></li><li>这样可以提取出所有附件,也就是图片posts。</li><li>然后需要修改这些posts的 guid和post_content字段中的图片URL地址:<ul><li>guid字段保存着图片原始URL</li><li>post_content字段中可能还有图片URL作为HTML标签属性</li></ul></li></ol><p>可以使用REPLACE函数来批量替换URL:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">UPDATE wp_posts</span><br><span class="line">SET guid = REPLACE(guid, &#x27;old-domain&#x27;, &#x27;new-domain&#x27;),</span><br><span class="line">post_content = REPLACE(post_content, &#x27;old-domain&#x27;, &#x27;new-domain&#x27;)</span><br><span class="line">WHERE post_type = &#x27;attachment&#x27;;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">UPDATE wp_posts</span><br><span class="line">SET guid = REPLACE(guid, &#x27;https://zhiqiansoft.com/&#x27;, &#x27;http://139.224.37.141:8500/&#x27;),</span><br><span class="line">post_content = REPLACE(post_content, &#x27;https://zhiqiansoft.com/&#x27;, &#x27;https://zhiqiansoft.com&#x27;)</span><br><span class="line">WHERE post_type = &#x27;attachment&#x27;;</span><br></pre></td></tr></table></figure><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><hr><ul><li>如果要粗暴的备份方法，可以看[[WordPress-备份]]</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;生产日期&lt;br&gt;2023-07-07 13:17&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h1&gt;&lt;hr&gt;
+&lt;ol&gt;</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://example.com/2024/03/24/hello-world/"/>
+    <id>http://example.com/2024/03/24/hello-world/</id>
+    <published>2024-03-24T06:26:46.827Z</published>
+    <updated>2024-03-24T06:26:46.828Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
